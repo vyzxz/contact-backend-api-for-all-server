@@ -10,6 +10,7 @@ import { createOwnerEmailTemplate, createUserEmailTemplate } from './utils/email
 dotenv.config();
 
 const app = express();
+app.set('trust proxy', 1);
 
 // ========================
 // SECURITY CONFIGURATION
@@ -112,8 +113,8 @@ const createTransporter = (retryCount = 0) => {
   
   const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST || 'smtp.zoho.com',
-    port: parseInt(process.env.SMTP_PORT) || 587,
-    secure: false,
+    port: parseInt(process.env.SMTP_PORT) || 465,
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -513,3 +514,4 @@ app.listen(PORT, () => {
 
 
 export default app;
+
