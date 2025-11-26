@@ -38,7 +38,7 @@ app.use(
 // Enhanced CORS for production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://yourdomain.com', 'https://www.yourdomain.com'] 
+    ? ['https://www.vyzx.live', 'https://vyzx.live'] 
     : ['http://localhost:3000', 'http://127.0.0.1:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -510,5 +510,6 @@ app.listen(PORT, () => {
 ───────────────────────────────────────────
   `);
 });
+
 
 export default app;
